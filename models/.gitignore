@@ -1,0 +1,14 @@
+model/*.npz
+model/*.bpe
+model/*.yml
+model/*.tgz
+model/tc.*
+
+tools/m2scorer
+tools/marian-dev
+tools/moses-scripts
+tools/subword-nmt
+tools/jfleg
+tools/__pycache__
+
+conll/*.m2
