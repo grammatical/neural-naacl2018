@@ -22,6 +22,7 @@ $MARIAN/marian --type lm-transformer \
     --vocabs ./data/helpers/vocab.yml --tied-embeddings-all \
     --max-length 120 --max-length-crop \
     --enc-depth 6 --dec-depth 6 --transformer-heads 8 \
+    --transformer-dropout 0.1 \
     --exponential-smoothing --label-smoothing 0.1 \
     --mini-batch-fit -w 10000 --mini-batch 1000 --maxi-batch 1000 --sync-sgd \
     --learn-rate 0.0003 --lr-warmup 16000 --lr-decay-inv-sqrt 16000 --lr-report \
