@@ -37,8 +37,9 @@ conll: \
 	cat $< | perl ../tools/m2_to_txt.pl > $@
 
 %.mer.txt: conll/%.m2
-	perl ../tools/error_rate.pl --mer 0.15 --m2in $< --errout $*.mer.err --corout $*.mer.cor --m2out $*.mer.m2
-	paste $*.mer.err $*.mer.cor | python ../tools/remove_empty_lines.py > $@
+	perl ../tools/error_rate.pl --mer 0.15 --m2in $< --errout $*.mer.tmp.err --corout $*.mer.tmp.cor --m2out $*.mer.m2
+	paste $*.mer.tmp.err $*.mer.tmp.cor | python ../tools/remove_empty_lines.py > $@
+	rm $*.mer.tmp.???
 
 # Prepare JFLEG data
 jfleg: \
