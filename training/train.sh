@@ -32,6 +32,7 @@ bash ./evaluate.sh models/ensemble/eval "$GPUS" models/transformer.?/model.npz.b
 bash ./lm.sh models/lm.2 "$GPUS" $OPTIONS
 
 # Evaluate ensemble with LM setting the weight for LM to 0.4
+# Note: the weight may need to be tuned on test2013 for each training run
 bash ./evaluate.sh models/ensemble.lm/eval "$GPUS" models/transformer.?/model.npz.best-translation.npz models/lm.2/model.npz.best-perplexity.npz \
     --weights 1. 1. 1. 1. .4
 

@@ -72,7 +72,7 @@ The scripts are prepared for training on 4 GPUs with 12GB RAM memory.
 Transformer models are hungry of large mini-batches.  These can be obtained in
 Marian either by having a lot of RAM available or by gradients accumulation.
 Hence, if you have 4 GPUs with 8GB RAM only, I suggest adding
-`--optimizer-delay 2` to training commands (and you need to reduce the
+`--optimizer-delay 3` to training commands (and you need to reduce the
 workspace, e.g. `-w 6500`).  I successfully trained some of the models on 2
-GPUs with 12GB RAM with `--optimizer-delay 3`.  To make these changes you need
-to manually modify `transformer.sh` and `lm.sh`.
+GPUs with 12GB RAM with `--optimizer-delay` set to 2 or 3.  To make these
+changes you need to manually modify `transformer.sh` and `lm.sh`.

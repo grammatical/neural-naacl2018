@@ -9,9 +9,9 @@ MODEL=$1
 shift
 GPUS=$@
 
-mkdir -p $MODEL
 MARIAN=./tools/marian-dev/build
 
+mkdir -p $MODEL
 cp ./scripts/validate.conll.sh $MODEL/validate.sh
 cp $0 $MODEL/script.sh
 
@@ -27,7 +27,7 @@ $MARIAN/marian --type transformer \
     --layer-normalization --skip \
     --dropout-rnn 0.3 --dropout-src 0.2 --dropout-trg 0.1 --transformer-dropout 0.3 \
     --exponential-smoothing --label-smoothing 0.1 \
-    --mini-batch-fit -w 9500 --mini-batch 1000 --maxi-batch 1000 --sync-sgd \
+    --mini-batch-fit -w 9500 --mini-batch 1000 --maxi-batch 1000 --sync-sgd --optimizer-delay 2 \
     --learn-rate 0.0003 --lr-warmup 16000 --lr-decay-inv-sqrt 16000 --lr-report \
     --optimizer-params 0.9 0.98 1e-09 --clip-norm 5 \
     --valid-metrics cross-entropy ce-mean-words translation perplexity \
@@ -37,5 +37,5 @@ $MARIAN/marian --type transformer \
     --valid-mini-batch 16 --beam-size 12 --normalize 1.0 \
     --early-stopping 10 \
     --valid-freq 5000 --save-freq 5000 --disp-freq 500 \
-    --keep-best \
+    --overwrite --keep-best \
     --log $MODEL/train.log --valid-log $MODEL/valid.log

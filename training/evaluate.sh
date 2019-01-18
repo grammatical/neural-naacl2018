@@ -16,7 +16,7 @@ shift
 GPUS=$1
 shift
 
-OPTIONS="-m $@ -v $DATA/helpers/vocab.yml $DATA/helpers/vocab.yml --mini-batch 32 --beam-size 6 --normalize 1.0 --max-length 120 --max-length-crop --quiet"
+OPTIONS="-m $@ -v $DATA/helpers/vocab.yml $DATA/helpers/vocab.yml --mini-batch 32 --beam-size 6 --normalize 1.0 --max-length 120 --max-length-crop --quiet-translation"
 
 mkdir -p $DIR
 
