@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 from __future__ import print_function
@@ -44,7 +44,7 @@ def get_ngrams(segment, max_order, min_freq):
             ngram = tuple(segment[i:i + order])
             counts[ngram] += 1
     if min_freq > 1:
-        for ngram in counts.keys():
+        for ngram in list(counts):
             if counts[ngram] < min_freq:
                 del counts[ngram]
     return counts
