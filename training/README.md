@@ -43,7 +43,7 @@ available.
 1. Download required tools and compile Marian:
 
         cd tools
-        make install
+        make tools
         make marian-dev
         cd ..
 
